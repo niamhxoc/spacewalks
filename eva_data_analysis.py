@@ -8,8 +8,6 @@ input_file = open('./eva-data.json', 'r', encoding='ascii')
 output_file = open('./eva_data_analysis.csv', 'w', encoding='utf-8')
 graph_file = './cumulative_eva_figure.png'
 
-fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Purpose")
-
 EVA_data=[]
 
 for i in range(375):

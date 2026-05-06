@@ -6,10 +6,15 @@ input_file = open('./eva-data.json', 'r', encoding='ascii')
 output_file = open('./eva_data_analysis.csv', 'w', encoding='utf-8')
 graph_file = './cumulative_eva_figure.png'
 
+print("--START--")
+print(f"Reading JSON file {input_file}")
+
 # Read in the EVA data with pandas
 eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
 eva_df['eva'] = eva_df['eva'].astype(float) # Set the mission number to a float in the pandas df
 eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True) # Clean data by removing rows where duration is empty
+
+print(f'Saving to CSV {output_file}')
 
 # Write EVA data to csv file 
 eva_df.to_csv(output_file, index=False, encoding='utf-8') 
@@ -19,10 +24,14 @@ eva_df.sort_values('date', inplace=True) # Sort EVA missions in df by date
 eva_df['duration_hours'] = eva_df['duration'].str.split(":").apply(lambda x: int(x[0]) + int(x[1])/60) # Extract each mission duration and convert to hours (float)
 eva_df['cumulative_time'] = eva_df['duration_hours'].cumsum() # Cumulatively sum and write each mission duration through time
 
+print(f'Plotting cumulative time spent in space and save to {graph_file}')
+
 # Create plot of cumulative time spent in space through time
 plt.plot(eva_df['date'], eva_df['cumulative_time'], 'ko-')
 plt.xlabel('Year')
 plt.ylabel('Total time spent in space to date (hours)')
+plt.grid(alpha=0.2)
 plt.tight_layout()
 plt.savefig(graph_file)
 plt.show()
+print("--END--")

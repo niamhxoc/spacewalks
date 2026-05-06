@@ -8,8 +8,8 @@ graph_file = './cumulative_eva_figure.png'
 
 # Read in the EVA data with pandas
 eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
-eva_df['eva'] = eva_df['eva'].astype(float) # Set the missiun number to a float in the pandas df
-eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
+eva_df['eva'] = eva_df['eva'].astype(float) # Set the mission number to a float in the pandas df
+eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True) # Clean data by removing rows where duration is empty
 
 # Write EVA data to csv file 
 eva_df.to_csv(output_file, index=False, encoding='utf-8') 

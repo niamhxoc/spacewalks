@@ -31,4 +31,4 @@ def test_calculate_crew_size_edge_cases():
     Test calculate_crew_size returns expected values for edge case
     where crew is an empty string
     """
-    assert calculate_crew_size("") == None
+    assert calculate_crew_size("") is None

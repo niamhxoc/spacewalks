@@ -1,0 +1,26 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Spacewalks
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: O'Callaghan
+    name-particle: Niamh
+repository-code: >-
+  https://github.com/niamhxoc/spacewalks.git
+abstract: >-
+  A Python script to analyse NASA extravehicular activity
+  data
+keywords:
+  - NASA
+  - Extravehicular activity
+version: 1.0.1
+identifiers:
+  - type: doi
+    value: 10.5072/zenodo.496983
+date-released: 2026-05-08
+

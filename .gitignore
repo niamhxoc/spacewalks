@@ -1,3 +1,5 @@
 venv_spacewalks/
 **/.DS_Store
 **/.vscode/
+.coverage
+__pycache__/
